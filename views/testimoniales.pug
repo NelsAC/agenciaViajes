@@ -1,0 +1,24 @@
+extends ./layout/index
+block Contenido
+    main.container.mt-5
+        h1.text-center.mt-5= pagina
+        div.row
+            div.col-md-12
+                h2.d-block.w-100.text-center Agrega un testimonial
+                if(errores)
+                    each error in errores
+                        div.alert.col.alert-danger.text-center= error.msj
+            div.row.justify-content-center
+                div.col-md-8
+                    form(action="" method="POST")
+                        div.mb-3
+                            label(for="nombre") Nombre 
+                            input.form-control#nombre(type="text", placeholder="Tu nombre", name="nombre", value= nombre)
+                        div.mb-3
+                            label(for="correo") Correo Electrónico 
+                            input.form-control#correo(type="text", placeholder="Tu correo", name="correo", value= correo)
+                        div.mb-3
+                            label(for="mensaje") Mensaje 
+                            textarea.form-control#mensaje(placeholder="Tu mensaje", name="mensaje", rows="3")= mensaje
+
+                        input.btn.btn-success.w-100(type="submit")
